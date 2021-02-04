@@ -79,53 +79,37 @@ const nextMoveFilter = (nextMove, direction, headX, headY) => {
     switch (direction) {
         case 'x': {
             nextMove = document.querySelector(`[posX="${+headX + 1}"][posY="${headY}"]`);
-            if (nextMove !== null && nextMove.classList.contains('body') === true) {
-                nextMove = document.querySelector(`[posX="${+headX - 1}"][posY="${headY}"]`);
-                direction = '-x'
-            }
+
             break;
         }
         case 'y': {
             nextMove = document.querySelector(`[posX="${headX}"][posY="${+headY + 1}"]`);
-            if (nextMove !== null && nextMove.classList.contains('body') === true) {
-                nextMove = document.querySelector(`[posX="${+headX}"][posY="${+headY - 1}"]`);
-                direction = '-y'
-            }
+
             break;
         }
         case '-x': {
             nextMove = document.querySelector(`[posX="${+headX - 1}"][posY="${headY}"]`)
-            if (nextMove !== null && nextMove.classList.contains('body') === true) {
-                nextMove = document.querySelector(`[posX="${+headX + 1}"][posY="${headY}"]`);
-                direction = 'x'
-            }
             break;
         }
         case '-y': {
             nextMove = document.querySelector(`[posX="${headX}"][posY="${+headY - 1}"]`);
-            if (nextMove !== null && nextMove.classList.contains('body')) {
-                nextMove = document.querySelector(`[posX="${+headX}"][posY="${+headY + 1}"]`);
-                direction = 'y'
-            }
             break;
         }
-
-
         default:
             break;
     }
 
     if (nextMove === null && direction === 'x') {
-        return nextMove = document.querySelector(`[posX="${1}"][posY="${headY}"]`);
+        nextMove = document.querySelector(`[posX="${1}"][posY="${headY}"]`);
     }
     else if (nextMove === null && direction === 'y') {
-        return nextMove = document.querySelector(`[posX="${headX}"][posY="${1}"]`);
+        nextMove = document.querySelector(`[posX="${headX}"][posY="${1}"]`);
     }
     else if (nextMove === null && direction === '-y') {
-        return nextMove = document.querySelector(`[posX="${headX}"][posY="${15}"]`);
+        nextMove = document.querySelector(`[posX="${headX}"][posY="${15}"]`);
     }
     else if (nextMove === null && direction === '-x') {
-        return nextMove = document.querySelector(`[posX="${20}"][posY="${headY}"]`);
+        nextMove = document.querySelector(`[posX="${20}"][posY="${headY}"]`);
     }
 
     if (nextMove.classList.contains('apple')) {
